@@ -27,7 +27,7 @@ public class LesBlogg {
 		try {
 
 			File file = new File(mappe + filnavn);
-			BufferedReader reader = new BufferedReader(new FileReadeer(file));
+			BufferedReader reader = new BufferedReader(new FileReader(file));
 
 			int antallInnlegg = Integer.valueOf(reader.readLine());
 			blogg = new Blogg(antallInnlegg);

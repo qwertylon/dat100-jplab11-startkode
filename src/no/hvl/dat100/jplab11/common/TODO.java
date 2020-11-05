@@ -23,11 +23,11 @@ public class TODO {
 	}
 
 	// Main-metode for testing
-	/*
+	
 	public static void main(String[] args) {
 
 		// Test av opgave 3m, search()
-		Blogg samling = new BLogg(6);
+		Blogg samling = new Blogg(6);
 
 		Tekst tekst1 = new Tekst(11, "Ole Olsen", "23-10-2019", "en tekst");
 		Tekst tekst2 = new Tekst(72, "Ole Olsen", "23-10-2019", "fjdklsfsjk");
@@ -48,6 +48,5 @@ public class TODO {
 
 	}
 
-*/
 
 }
