@@ -9,16 +9,23 @@ public class HtmlBlogg extends Blogg {
 	public HtmlBlogg() {
 		super();
 	}
-	
-	private static String HTMLPREFIX = 
+
+	private static String HTMLPREFIX =
 			"<html>\n\t<head>\n\t\t<title>DAT100 Blogg</title>\n\t</head>\n\t<body>\n";
-	
-	private static String HTMLPOSTFIX = 
+
+	private static String HTMLPOSTFIX =
 			"\t</body>\n</html>";
-	
+
 	@Override
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
-		
+
+		Innlegg[] innleggtabell = this.getSamling();
+		String bloggTekst = HTMLPREFIX;
+
+		for (int i = 0; i < this.getAntall(); i++) {
+			bloggTekst += innleggtabell[i].toHTML();
+		}
+
+		return bloggTekst + HTMLPOSTFIX;		
 	}
 }

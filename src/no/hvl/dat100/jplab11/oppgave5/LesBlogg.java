@@ -22,7 +22,45 @@ public class LesBlogg {
 
 	public static Blogg les(String mappe, String filnavn) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		Blogg blogg;
+
+		try {
+
+			File file = new File(mappe + filnavn);
+			BufferedReader reader = new BufferedReader(new FileReadeer(file));
+
+			int antallInnlegg = Integer.valueOf(reader.readLine());
+			blogg = new Blogg(antallInnlegg);
+
+			while (reader.ready()) {
+
+				String type = reader.readLine();
+				int id = Integer.valueOf(reader.readLine());
+				String bruker = reader.readLine();
+				String dato = reader.readLine();
+				int likes = Integer.valueOf(reader.readLine());
+				String tekst = reader.readLine();
+
+				if (type.equals(BILDE)) {
+					String url = reader.readLine();
+
+					Bilde bildeInnlegg = new Bilde(id, bruker, dato, likes, tekst, url);
+					blogg.leggTil(bildeInnlegg);
+
+				} else if (type.equals(TEKST)) {
+
+					Tekst tekstInnlegg = new Tekst(id, bruker, dato, likes, tekst);
+					blogg.leggTil(tekstInnlegg);
+				}
+			}
+
+			reader.close();
+
+		} catch (Exception e) {
+			blogg = new Blogg();
+		}
+
+		return blogg;
 
 	}
 }
